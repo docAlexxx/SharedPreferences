@@ -22,6 +22,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
+
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -40,6 +41,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     @Override
     public int getItemCount() {
         return dataSet.size();
+    }
+
+    public UserNote getData(int i) {
+        return dataSet.get(i);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

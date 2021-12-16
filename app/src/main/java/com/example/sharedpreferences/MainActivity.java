@@ -39,13 +39,16 @@ public class MainActivity extends AppCompatActivity {
                 Type type = new TypeToken<ArrayList<UserNote>>() {
                 }.getType();
                 notesAdapter.setNewData(new GsonBuilder().create().fromJson(savedNotes, type));
+                for (int i =0; i<notesAdapter.getItemCount(); i++){
+                    userNotes.add(notesAdapter.getData(i));
+                }
             } catch (JsonSyntaxException e) {
                 Toast.makeText(this, "Ошибка трансформации", Toast.LENGTH_SHORT).show();
             }
         }
 
         findViewById(R.id.fab).setOnClickListener(view -> {
-            userNotes.add(new UserNote("New note", new Date(), "New note"));
+            userNotes.add(new UserNote("Note "+(notesAdapter.getItemCount()+1), new Date(), "New note"));
             notesAdapter.setNewData(userNotes);
             String jsonNotes = new GsonBuilder().create().toJson(userNotes);
             sharedPref.edit().putString(KEY, jsonNotes).apply();
