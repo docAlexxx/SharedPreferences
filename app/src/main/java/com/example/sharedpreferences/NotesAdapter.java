@@ -17,9 +17,18 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     public NotesAdapter(ArrayList<UserNote> dataSet) {
         this.dataSet = dataSet;
     }
+
+    public UserNote getData(int i) {
+        return dataSet.get(i);
+    }
+
     public void setNewData(ArrayList<UserNote> dataSet) {
         this.dataSet = dataSet;
         notifyDataSetChanged();
+    }
+
+    public ArrayList<UserNote> getData(){
+        return this.dataSet;
     }
 
     @Override
