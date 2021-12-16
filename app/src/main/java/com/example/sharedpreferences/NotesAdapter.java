@@ -27,10 +27,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         notifyDataSetChanged();
     }
 
-    public ArrayList<UserNote> getData(){
-        return this.dataSet;
-    }
-
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
